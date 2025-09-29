@@ -59,12 +59,13 @@ const Footer = () => {
               <motion.a
                 key={social.name}
                 href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={social.name === 'Email' ? '_self' : '_blank'}
+                rel={social.name === 'Email' ? undefined : 'noopener noreferrer nofollow'}
                 className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                aria-label={social.name}
+                aria-label={`Connect with Anest Petollari on ${social.name}`}
+                title={`${social.name} - Anest Petollari`}
               >
                 {social.icon}
               </motion.a>

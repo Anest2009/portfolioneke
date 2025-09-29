@@ -34,7 +34,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.2 }}
           >
-            your average pasta lover Just a student from Albania, working hard every day to become a software engineer.
+            Full-Stack Web Developer & UI/UX Designer based in Tirana, Albania. Passionate student and software engineer specializing in React, Next.js, TypeScript, and modern web technologies. Founder of WebXPressAL, creating innovative digital solutions for businesses across Albania and beyond.
             <br /><br />DESIGN PROJECTS ( FREE TIME )
           </motion.p>
         </section>

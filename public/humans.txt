@@ -1,0 +1,24 @@
+# humanstxt.org
+
+/* TEAM */
+Developer & Designer: Anest Petollari
+Location: Tirana, Albania
+Contact: anestpetollari44@gmail.com
+GitHub: https://github.com/Anest2009
+LinkedIn: https://www.linkedin.com/in/anest-petollari-31158b338/
+Instagram: https://www.instagram.com/anest__34/
+
+/* SITE */
+Last update: 2025/09/29
+Standards: HTML5, CSS3, JavaScript ES6+
+Components: React, TypeScript, Tailwind CSS, Next.js
+Software: Cursor, VS Code, Git
+Hosted: Vercel
+
+/* THANKS */
+Special thanks to the open-source community and all the amazing developers who create the tools that make modern web development possible.
+
+/* LOCATION */
+Country: Albania
+City: Tirana
+Region: Balkans, Europe
