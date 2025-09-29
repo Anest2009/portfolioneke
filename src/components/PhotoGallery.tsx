@@ -10,11 +10,11 @@ interface PhotoGalleryProps {
 export const PhotoGallery = ({ isMobile }: PhotoGalleryProps) => {
   const baseZIndex = 10;
   const getZIndex = (index: number) => baseZIndex + index;
-  const displayPhotos = isMobile ? photos.slice(0, 2) : photos;
+  const displayPhotos = photos; // Show all photos on both mobile and desktop
 
   return (
     <motion.div
-      className="relative h-[19rem] overflow-visible"
+      className={`relative ${isMobile ? 'h-[32rem]' : 'h-[19rem]'} overflow-visible`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
