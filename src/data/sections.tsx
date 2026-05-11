@@ -1,9 +1,5 @@
 import { motion } from 'framer-motion';
 import { ProjectsShowcase } from '../components/ProjectsShowcase';
-import shadowsImage from '../assets/images/shadows.png';
-import nanoChatImage from '../assets/images/secret.png';
-import artImage from'../assets/images/fotoja.png';
-import timoraImage from '../assets/images/Screenshot 2025-09-29 122213.png';
 
 export const sections = [
     {
