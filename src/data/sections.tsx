@@ -1,36 +1,9 @@
 import { motion } from 'framer-motion';
-import { Project } from '../components/Project';
+import { ProjectsShowcase } from '../components/ProjectsShowcase';
 import shadowsImage from '../assets/images/shadows.png';
 import nanoChatImage from '../assets/images/secret.png';
 import artImage from'../assets/images/fotoja.png';
 import timoraImage from '../assets/images/Screenshot 2025-09-29 122213.png';
-
-const projects = [
-  {
-    title: "TIMORA.AL",
-    description: "Beauty & Wellness Booking Platform - A comprehensive booking system for beauty and wellness services with instant booking capabilities",
-    link: "https://timora.al",
-    previewImage: timoraImage
-  },
-  {
-    title: "ArtCoffe",
-    description: "Order Tracking System with Admin Dashboard, Staff Dashboard and Client side",
-    link: "https://github.com/Anest2009/artcoffejunction",
-    previewImage: artImage
-  },
-  {
-    title: "Nano Chat (WORKING ON IT)",
-    description: "A private E2EE chat app that gives the user full privacy and security.",
-    link: "",
-    previewImage: nanoChatImage
-  },
-  {
-    title: "Shadows",
-    description: "The art of being free and the love for shadows never ends",
-    link: "https://github.com/Anest2009/Shadows",
-    previewImage: shadowsImage
-  }
-];
 
 export const sections = [
     {
@@ -40,16 +13,16 @@ export const sections = [
           {[
             {
               company: "WebXPressAL",
-              date: "2024 - Now",
+              date: "2024 - 2024",
               title: "Web Developer & Founder",
-              description: ["creating amazing experiences"],
+              description: ["building full-stack web applications for clients using React, Next.js, and modern technologies"],
               dotColor: "bg-blue-500"
             },
             {
               company: "Don Bosco, Professional High School",
               date: "2024 - Now",
               title: "IT & CS",
-              description: ["getting my degree to make my parents proud"],
+              description: ["pursuing IT & Computer Science degree while applying skills to real-world projects"],
               dotColor: "bg-amber-300"
             }
           ].map((item) => (
@@ -81,10 +54,33 @@ export const sections = [
     {
       title: "Projects",
       content: (
-        <div className="space-y-4">
-          {projects.map((project) => (
-            <Project key={project.title} project={project} />
-          ))}
+        <ProjectsShowcase />
+      )
+    },
+    {
+      title: "Freelance Work",
+      content: (
+        <div className="mb-8">
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Through my freelance studio <span className="font-medium text-gray-900 dark:text-gray-100">WebXPressAL</span>, I've delivered complete web solutions for 5 clients across industries including consulting, healthcare, and energy. I handle the entire process from design to deployment, building custom sites tailored to each client's needs. Currently developing americancapitol while maintaining ongoing client relationships.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {[
+              { name: "blackbear-solutions.com", url: "https://blackbear-solutions.com" },
+              { name: "femd.com.al", url: "https://femd.com.al" },
+              { name: "americancapitol", url: "", status: "in progress" },
+              { name: "illyro.agency", url: "https://illyro.agency" },
+              { name: "windofchange.energy", url: "https://windofchange.energy" }
+            ].map((client) => (
+              <span
+                key={client.name}
+                className="text-xs px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full"
+              >
+                {client.name}
+                {client.status && <span className="ml-1 text-blue-500">({client.status})</span>}
+              </span>
+            ))}
+          </div>
         </div>
       )
     },
@@ -190,26 +186,26 @@ export const sections = [
           {[
             {
               title: "Cooking",
-              description: "trying not to burn the kitchen down",
-              stats: "13 fav recepies",
+              description: "experimenting with recipes and perfecting techniques",
+              stats: "13 favorite recipes",
               color: "rose"
             },
             {
-              title: "Filming",
-              description: "love to film things from my life",
+              title: "Videography",
+              description: "documenting life's moments through film",
               stats: "223 videos",
               color: "blue"
             },
             {
-              title: "Stocks and Crypto",
-              description: "buying high and selling low is my top one",
-              stats: "-$5,000 profit",
+              title: "Investing",
+              description: "following financial markets and learning investment strategies",
+              stats: "stocks & crypto",
               color: "green"
             },
             {
-              title: "Risking my life",
-              description: "fun but will be the reason why im going to jail",
-              stats: "4 crazy activities",
+              title: "Adventure Sports",
+              description: "pushing my comfort zone through adrenaline-fueled activities",
+              stats: "4 activities",
               color: "purple"
             },
           ].map((hobby) => (

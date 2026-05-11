@@ -35,7 +35,7 @@ const Home = () => {
             transition={{ duration: 0.5, delay: 1.2 }}
           >
             Full-Stack Web Developer & UI/UX Designer based in Tirana, Albania. Passionate student and software engineer specializing in React, Next.js, TypeScript, and modern web technologies. Founder of WebXPressAL, creating innovative digital solutions for businesses across Albania and beyond.
-            <br /><br />DESIGN PROJECTS ( FREE TIME )
+            <br /><br />DESIGN PROJECTS (FREE TIME)
           </motion.p>
         </section>
       </FadeInSection>
