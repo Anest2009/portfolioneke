@@ -27,7 +27,7 @@ const About = () => {
           About Anest Petollari - Developer in Albania
         </motion.h1>
         <motion.p className="text-sm sm:text-base leading-relaxed mb-6">
-          Professional Full-Stack Developer and UI/UX Designer from Tirana, Albania. Experienced in building modern web applications with React, Next.js, and TypeScript.
+          Professional Full-Stack Developer and UI Designer from Tirana, Albania. Experienced in building modern web applications with React, Next.js, and TypeScript.
           <br /><br />Recent Gallery Photos
         </motion.p>
       </FadeInSection>
