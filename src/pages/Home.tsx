@@ -3,6 +3,7 @@ import { TypeAnimation } from 'react-type-animation';
 import DesignProjects from '../components/DesignProjects';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { FadeInSection } from '../utils/FadeInSection';
+import { BookingButton } from '../components/BookingButton';
 
 const Home = () => {
   usePageTitle('');  // Empty string for home page
@@ -34,9 +35,14 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.2 }}
           >
-            Full-Stack Web Developer & UI/UX Designer based in Tirana, Albania. Passionate student and software engineer specializing in React, Next.js, TypeScript, and modern web technologies. Founder of WebXPressAL, creating innovative digital solutions for businesses across Albania and beyond.
-            <br /><br />DESIGN PROJECTS (FREE TIME)
+            Hey, I’m Anest, a software engineer from Tirana who loves turning rough ideas into thoughtful digital experiences. I care about making things feel clear, useful, and genuinely nice to use. This is a small collection of the work, experiments, and ideas I’ve enjoyed bringing to life.
           </motion.p>
+          <div>
+            <BookingButton />
+          </div>
+          <p className="pt-2 text-sm sm:text-base leading-relaxed">
+            DESIGN PROJECTS (FREE TIME)
+          </p>
         </section>
       </FadeInSection>
 
@@ -51,4 +57,4 @@ const Home = () => {
   );
 };
 
-export default Home; 
+export default Home;

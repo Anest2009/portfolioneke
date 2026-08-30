@@ -4,6 +4,8 @@ import { PhotoGallery } from '../components/PhotoGallery';
 import { AboutSection } from '../components/AboutSection';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { FadeInSection } from '../utils/FadeInSection';
+import { PersonalStats } from '../components/PersonalStats';
+import { BookingButton } from '../components/BookingButton';
 
 const About = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -23,13 +25,18 @@ const About = () => {
   return (
     <div>
       <FadeInSection>
-        <motion.h1 className="text-3xl font-bold">
-          About Anest Petollari - Developer in Albania
-        </motion.h1>
-        <motion.p className="text-sm sm:text-base leading-relaxed mb-6">
-          Professional Full-Stack Developer and UI Designer from Tirana, Albania. Experienced in building modern web applications with React, Next.js, and TypeScript.
-          <br /><br />Recent Gallery Photos
-        </motion.p>
+        <div className="space-y-3">
+          <motion.h1 className="text-3xl font-bold">
+            About Anest Petollari
+          </motion.h1>
+          <motion.p className="max-w-3xl text-sm leading-relaxed sm:text-base">
+            Software engineer from Tirana, Albania, building full-stack products and AI-enabled workflows with React, Next.js, TypeScript, PostgreSQL, and Supabase. Currently working at Bliss Therapy and delivering complete freelance products for clients from initial concept through launch.
+          </motion.p>
+          <BookingButton />
+        </div>
+        <p className="mb-6 mt-7 text-sm leading-relaxed sm:text-base">
+          Recent Gallery Photos
+        </p>
       </FadeInSection>
 
       <FadeInSection delay={0.2}>
@@ -39,8 +46,12 @@ const About = () => {
       <FadeInSection delay={0.4}>
         <AboutSection />
       </FadeInSection>
+
+      <FadeInSection delay={0.6}>
+        <PersonalStats />
+      </FadeInSection>
     </div>
   );
 };
 
-export default About; 
+export default About;

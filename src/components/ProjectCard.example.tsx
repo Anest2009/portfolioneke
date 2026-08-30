@@ -1,34 +1,25 @@
 // Example usage of ProjectCard component
 import { ProjectCard } from './ProjectCard';
-import timoraImage from '../assets/images/Screenshot 2025-09-29 122213.png';
 import artImage from '../assets/images/fotoja.png';
 import nanoChatImage from '../assets/images/secret.png';
 
 // Example: Single project card
 export const ExampleSingleCard = () => {
-  const timoraProject = {
-    title: "TIMORA.AL",
-    description: "A comprehensive booking platform for beauty and wellness services with real-time availability.",
-    techStack: ["Next.js", "Supabase", "TypeScript", "Tailwind CSS"],
-    liveLink: "https://timora.al",
-    githubLink: "", // Optional: leave empty if no GitHub link
-    thumbnail: timoraImage
+  const artCoffeProject = {
+    title: "ArtCoffe",
+    description: "Order tracking system with separate dashboards for admins, staff, and clients.",
+    techStack: ["React", "Node.js", "PostgreSQL", "Tailwind CSS"],
+    liveLink: "",
+    githubLink: "https://github.com/Anest2009/artcoffejunction",
+    thumbnail: artImage
   };
 
-  return <ProjectCard project={timoraProject} />;
+  return <ProjectCard project={artCoffeProject} />;
 };
 
 // Example: Grid of multiple project cards
 export const ExampleProjectGrid = () => {
   const projects = [
-    {
-      title: "TIMORA.AL",
-      description: "A comprehensive booking platform for beauty and wellness services with real-time availability.",
-      techStack: ["Next.js", "Supabase", "TypeScript", "Tailwind CSS"],
-      liveLink: "https://timora.al",
-      githubLink: "",
-      thumbnail: timoraImage
-    },
     {
       title: "ArtCoffe",
       description: "Order tracking system with separate dashboards for admins, staff, and clients.",

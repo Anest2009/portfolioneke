@@ -1,12 +1,5 @@
 export const photos = [
   {
-    image: "/JHkBnOij_400x400 (1).jpg",
-    date: "September 2025",
-    location: "Tirana, Albania",
-    caption: "Timora",
-    style: "sm:top-4 sm:left-[-10%] top-2 left-2 rotate-[-6deg] z-10"
-  },
-  {
     image: "/ccd78188764ffcb166a31b20747d22c0.jpg",
     date: "April 2025",
     location: "Tirana, Albania",

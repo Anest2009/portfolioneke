@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import timoraImage from '../assets/images/Screenshot 2025-09-29 122213.png';
 import artImage from '../assets/images/fotoja.png';
 import nanoChatImage from '../assets/images/secret.png';
 
@@ -13,12 +12,6 @@ interface Project {
 }
 
 const projects: Project[] = [
-  {
-    id: 'timora',
-    title: 'TIMORA.AL',
-    tagline: 'Beauty & wellness booking platform',
-    image: timoraImage
-  },
   {
     id: 'artcoffe',
     title: 'ArtCoffe',

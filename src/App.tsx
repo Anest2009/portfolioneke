@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Gear from './pages/Gear';
 import ProjectDetail from './pages/ProjectDetail';
+import InsightDetail from './pages/InsightDetail';
 // import Gallery from './pages/Gallery';
 import ScrollToTop from './utils/ScrollToTop';
 import { Layout } from './components/Layout';
@@ -71,6 +72,7 @@ const App = () => {
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/gear" element={<Gear />} />
+                    <Route path="/gear/:insightId" element={<InsightDetail />} />
                     <Route path="/project/:projectId" element={<ProjectDetail />} />
                     {/* <Route path="/gallery" element={<Gallery />} /> */}
                   </Routes>

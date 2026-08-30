@@ -1,9 +1,9 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { usePageTitle } from '../hooks/usePageTitle';
-import timoraImage from '../assets/images/Screenshot 2025-09-29 122213.png';
 import artImage from '../assets/images/fotoja.png';
 import nanoChatImage from '../assets/images/secret.png';
+import { PersonalStats } from '../components/PersonalStats';
 
 interface Project {
   id: string;
@@ -18,16 +18,6 @@ interface Project {
 }
 
 const projects: Project[] = [
-  {
-    id: 'timora',
-    title: 'TIMORA.AL',
-    tagline: 'Beauty & wellness booking platform',
-    description: 'A comprehensive booking platform for beauty and wellness services with real-time availability. Built to streamline appointment scheduling and service management for beauty professionals across Albania.',
-    techStack: ['Next.js', 'Supabase', 'TypeScript', 'Tailwind CSS'],
-    liveLink: 'https://timora.al',
-    githubLink: '',
-    image: timoraImage
-  },
   {
     id: 'artcoffe',
     title: 'ArtCoffe',
@@ -180,6 +170,8 @@ const ProjectDetail = () => {
           </div>
         )}
       </motion.div>
+
+      <PersonalStats />
     </div>
   );
 };
