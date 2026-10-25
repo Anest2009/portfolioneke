@@ -20,7 +20,7 @@ const Home = () => {
           >
             <TypeAnimation
               sequence={[
-                'hello, Anest here',
+                'Product Engineer & Partnerships at Bliss Therapy',
               ]}
               wrapper="h1"
               cursor={true}
@@ -35,7 +35,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.2 }}
           >
-            Hey, I’m Anest, a software engineer from Tirana who loves turning rough ideas into thoughtful digital experiences. I care about making things feel clear, useful, and genuinely nice to use. This is a small collection of the work, experiments, and ideas I’ve enjoyed bringing to life.
+            Hey, I’m Anest, a product engineer from Tirana. I work across product engineering and partnerships at Bliss Therapy, building therapist discovery and AI-powered experiences that help people find support in their own language and culture. I’m also Technical Lead at Earth’s Own Heart, and I build and launch products like MEGAFONI. I care about making things clear, useful, and thoughtful to use.
           </motion.p>
           <div>
             <BookingButton />

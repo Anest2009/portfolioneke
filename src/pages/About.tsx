@@ -30,7 +30,10 @@ const About = () => {
             About Anest Petollari
           </motion.h1>
           <motion.p className="max-w-3xl text-sm leading-relaxed sm:text-base">
-            Software engineer from Tirana, Albania, building full-stack products and AI-enabled workflows with React, Next.js, TypeScript, PostgreSQL, and Supabase. Currently working at Bliss Therapy and delivering complete freelance products for clients from initial concept through launch.
+            I’m a product engineer based in Tirana, Albania. At Bliss Therapy, I work in Product &amp; Partnerships, shipping features across frontend, backend, and AI-powered therapist experiences while supporting strategic partnerships and B2B initiatives. I also lead web development, technical infrastructure, and internal systems at Earth’s Own Heart, a nonprofit organization.
+          </motion.p>
+          <motion.p className="max-w-3xl text-sm leading-relaxed sm:text-base">
+            My work spans TypeScript, React, Next.js, PostgreSQL, Supabase, and AI-assisted engineering workflows—from turning product requirements into working software to debugging production issues and supporting releases. Outside my current roles, I build products including MEGAFONI and SANAMY, alongside earlier client work like Kohela and WEBXPRESSAL.
           </motion.p>
           <BookingButton />
         </div>

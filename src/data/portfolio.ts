@@ -11,33 +11,33 @@ export type Experience = {
 export const experiences: Experience[] = [
   {
     company: 'Bliss Therapy',
-    role: 'Software Engineer · Frontend-focused',
-    period: 'Jun 2026 — Present',
-    location: 'Tirana, Albania',
+    role: 'Product & Partnerships · Full-time',
+    period: 'Jul 2026 — Present',
+    location: 'Tirana, Albania · Remote',
     type: 'Current',
-    summary: 'Shipping product experiences across AI Twin chat, voice-agent, and multilingual flows.',
+    summary: 'Build and ship therapist discovery and AI-powered therapist experiences at a mental-health technology startup.',
     highlights: [
       'Build responsive React, TypeScript, and Tailwind CSS features while contributing backend changes and API integrations.',
       'Create n8n automations for voice-cloning deployment, troubleshoot production issues, and support releases.',
+      'Support strategic partnerships, B2B initiatives, and go-to-market projects alongside product engineering.',
     ],
   },
   {
-    company: 'Kohela',
-    role: 'Freelance Full-Stack Developer',
-    period: 'Jan 2025 — Present',
-    location: 'Tirana, Albania',
-    type: 'Freelance',
-    summary: 'Designed and built a multi-tenant booking platform end-to-end for a client serving 20+ beauty businesses.',
+    company: "Earth's Own Heart",
+    role: 'Technical Lead · Part-time',
+    period: 'Jul 2026 — Present',
+    location: 'Tirana, Albania · Remote',
+    type: 'Current',
+    summary: 'Lead web development for a nonprofit organization.',
     highlights: [
-      'Owned the complete delivery—from product structure and interface design through the PostgreSQL and Supabase architecture, implementation, and deployment.',
-      'Built authenticated customer and admin flows, resolved production defects, and improved weekly merchant onboarding.',
+      'Own technical infrastructure and internal systems to support the organization’s work.',
     ],
   },
   {
     company: 'SYNK',
     role: 'Technical Design Intern',
     period: 'May — Jun 2026',
-    location: 'Tirana, Albania',
+    location: 'Tirana, Albania · Remote',
     type: 'Internship',
     summary: 'Optimized low-poly 3D avatars for browser-based spatial experiences.',
     highlights: [
@@ -45,15 +45,38 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    company: 'Illyro Agency',
-    role: 'AI Engineer',
-    period: 'Feb — May 2025',
-    location: 'Tirana, Albania',
+    company: 'Black Bear Solutions AL',
+    role: 'Full-Stack Developer · Full-time',
+    period: 'Jan — Jun 2026',
+    location: 'Tirana, Albania · Remote',
     type: 'Experience',
-    summary: 'Built and monitored generative-AI workflows for fashion photography.',
+    summary: 'Built and shipped 12 production web applications for 20+ clients.',
+    highlights: [
+      'Delivered full-stack development, performance improvements, and technical SEO across client projects.',
+    ],
+  },
+  {
+    company: 'Illyro',
+    role: 'Lead Full-Stack Developer · Full-time',
+    period: 'Oct — Dec 2025',
+    location: 'Albania · Remote',
+    type: 'Experience',
+    summary: 'Built and launched an AI-powered visual production platform serving 20 clients and generating €5K in its first 90 days.',
     highlights: [
       'Reduced production turnaround from three days to four hours through automated generation and review steps.',
       'Added cloud monitoring and real-time alerts while translating campaign briefs into technical requirements.',
+    ],
+  },
+  {
+    company: 'Kohela',
+    role: 'Freelance Full-Stack Developer',
+    period: 'Started Jan 2025',
+    location: 'Tirana, Albania',
+    type: 'Freelance',
+    summary: 'Designed and built a multi-tenant booking platform end-to-end for a client serving 20+ beauty businesses.',
+    highlights: [
+      'Owned the complete delivery—from product structure and interface design through the PostgreSQL and Supabase architecture, implementation, and deployment.',
+      'Built authenticated customer and admin flows, resolved production defects, and improved weekly merchant onboarding.',
     ],
   },
   {
@@ -75,8 +98,8 @@ export const projects = [
     title: 'Megafoni Tirana',
     role: 'Co-founder & Engineer',
     period: 'Jun 2026',
-    description: 'A civic-reporting platform that turns public issues into traceable, source-backed cases instead of forgotten complaints.',
-    proof: 'Built in 48 hours · Top 10 of 30 at VibeHack 2026',
+    description: 'A live civic-reporting platform where citizens submit public issues with photos and locations. Reports are reviewed, routed to the responsible institution, and tracked in a public case file.',
+    proof: 'Live at megafoni.al · Started at VibeHack 2026, Top 10 of 30',
     tags: ['Civic tech', 'AI automation', 'Rapid product delivery'],
     url: 'https://megafoni.al',
     tone: 'coral',
@@ -107,11 +130,11 @@ export const certifications = [
   { name: 'Peer Counselor Against Human Trafficking', issuer: 'UNICEF', date: 'Aug 2026' },
   { name: 'Content Marketing Certified', issuer: 'HubSpot Academy', date: 'Jul 2026' },
   { name: 'Practical GitHub Actions', issuer: 'LinkedIn Learning', date: 'Apr 2026' },
-  { name: 'Model Context Protocol: Advanced Topics', issuer: 'Anthropic Courses', date: 'Apr 2026' },
-  { name: 'AI Fluency: Framework & Foundations', issuer: 'Anthropic Courses', date: 'Apr 2026' },
-  { name: 'Claude 101', issuer: 'Anthropic Courses', date: 'Apr 2026' },
+  { name: 'Model Context Protocol: Advanced Topics', issuer: 'Anthropic', date: 'Apr 2026' },
+  { name: 'AI Fluency: Framework & Foundations', issuer: 'Anthropic', date: 'Apr 2026' },
+  { name: 'Claude 101', issuer: 'Anthropic', date: 'Apr 2026' },
   { name: 'CCNA: Introduction to Networks', issuer: 'Cisco Networking Academy', date: 'Jan 2026' },
-  { name: "CS50's Introduction to Computer Science", issuer: 'HarvardX', date: '2024' },
+  { name: "CS50x: Introduction to Computer Science", issuer: 'Harvard University', date: 'Feb 2024' },
 ] as const;
 
 export const skillGroups = [
@@ -121,7 +144,7 @@ export const skillGroups = [
   },
   {
     label: 'Product engineering',
-    skills: ['React', 'Next.js', 'Node.js', 'REST APIs', 'Responsive UI', 'Cross-browser testing'],
+    skills: ['React', 'Next.js', 'Node.js', 'REST APIs', 'Responsive UI', 'Cross-browser testing', 'Technical SEO'],
   },
   {
     label: 'Data & platforms',
@@ -129,6 +152,10 @@ export const skillGroups = [
   },
   {
     label: 'AI & delivery',
-    skills: ['xAI API', 'Generative-AI workflows', 'n8n', 'Git', 'Debugging', 'Release validation'],
+    skills: ['xAI API', 'AI agent orchestration', 'Model Context Protocol', 'Generative-AI workflows', 'n8n', 'Git', 'Debugging', 'Release validation'],
+  },
+  {
+    label: 'Product & partnerships',
+    skills: ['Product management', 'Strategic partnerships', 'B2B initiatives', 'Go-to-market', 'Technical leadership'],
   },
 ] as const;

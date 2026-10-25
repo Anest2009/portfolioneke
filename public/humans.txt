@@ -9,7 +9,7 @@ LinkedIn: https://www.linkedin.com/in/anest-petollari-31158b338/
 Instagram: https://www.instagram.com/anest__34/
 
 /* SITE */
-Last update: 2025/09/29
+Last update: 2026/10/25
 Standards: HTML5, CSS3, JavaScript ES6+
 Components: React, TypeScript, Tailwind CSS, Next.js
 Software: Cursor, VS Code, Git
