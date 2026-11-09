@@ -1,97 +1,48 @@
-import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Menu, Moon, Sun, X } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
-import { theme } from '../styles/theme';
 
-const Navbar = () => {
+const links = [{ to: '/', label: 'Home' }, { to: '/projects', label: 'Projects' }, { to: '/experience', label: 'Experience' }];
+
+export default function Navbar() {
   const { isDarkMode, toggleTheme } = useTheme();
-  const location = useLocation();
-  const currentTheme = isDarkMode ? theme.dark : theme.light;
-
-  const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'About & Projects' },
-    { path: '/gear', label: 'Tech Insights' },
-  ];
+  const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+  const menu = useRef<HTMLDivElement>(null);
+  const toggle = useRef<HTMLButtonElement>(null);
+  useEffect(() => { setOpen(false); }, [pathname]);
+  useEffect(() => {
+    if (!open) return;
+    const dismiss = (event: PointerEvent) => {
+      if (!menu.current?.contains(event.target as Node)) setOpen(false);
+    };
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') { setOpen(false); toggle.current?.focus(); }
+    };
+    document.addEventListener('pointerdown', dismiss);
+    document.addEventListener('keydown', escape);
+    return () => {
+      document.removeEventListener('pointerdown', dismiss);
+      document.removeEventListener('keydown', escape);
+    };
+  }, [open]);
 
   return (
-    <header 
-      className="w-full backdrop-blur-sm"
-    >
-      <nav className="container-width py-4">
-        <div className="flex items-center justify-between">
-          {/* Added Logo/Icon */}
-          <Link to="/" className="flex items-center space-x-2">
-            <img 
-              src="/favicon.jpg" 
-              alt="Anes" 
-              className="w-8 h-8 rounded-full"
-            />
-          </Link>
-
-          <div className="flex items-center space-x-1">
-            {navItems.map((item) => {
-              const isActive = item.path === '/'
-                ? location.pathname === '/'
-                : location.pathname.startsWith(item.path);
-
-              return (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`px-3 py-2 text-sm rounded-lg transition-colors relative ${
-                    isActive
-                      ? 'text-gray-900 dark:text-white'
-                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
-                  }`}
-                >
-                  {item.label}
-                  {isActive && (
-                    <motion.div
-                      className="absolute inset-0 rounded-lg -z-10"
-                      style={{ backgroundColor: currentTheme.nav.bubble }}
-                      layoutId="bubble"
-                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                    />
-                  )}
-                </Link>
-              );
-            })}
-          </div>
-          <motion.button
-              onClick={toggleTheme}
-              type="button"
-              aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-              aria-pressed={isDarkMode}
-              title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-              className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors rounded-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {isDarkMode ? (
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                  />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                  />
-                </svg>
-              )}
-            </motion.button>
+    <header className="site-header">
+      <nav className="nav-inner" aria-label="Main navigation">
+        <Link className="wordmark" to="/" aria-label="Anest home">Anest</Link>
+        <div className="nav-actions" ref={menu}>
+          <div className="desktop-nav">{links.map(link => <NavLink key={link.to} to={link.to} end>{link.label}</NavLink>)}</div>
+          <button className="theme-toggle" onClick={toggleTheme} aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}>
+            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+          <button ref={toggle} className="menu-toggle" onClick={() => setOpen(!open)} aria-label="Toggle menu" aria-expanded={open} aria-controls="mobile-navigation">
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
+          {open && <div className="mobile-nav" id="mobile-navigation">{links.map(link => <NavLink key={link.to} to={link.to} end>{link.label}</NavLink>)}</div>}
         </div>
       </nav>
     </header>
   );
-};
-
-export default Navbar;
+}

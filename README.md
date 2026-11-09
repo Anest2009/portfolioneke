@@ -1,55 +1,25 @@
-# Personal Website
+# Anest Petollari — Portfolio
 
-A minimal, responsive personal website built with modern web technologies. Features a clean design with dark mode support, Spotify integration, and YouTube content showcase.
+Anest’s portfolio in the requested samworks.vercel.app-inspired layout: Home, Projects, Experience, and Contact. The More menu is excluded.
 
-## 🚀 Tech Stack
+## Run and verify
 
-### Core Technologies
-- **React** - Frontend library
-- **TypeScript** - Type-safe JavaScript
-- **Vite** - Build tool and development server
-- **Tailwind CSS** - Utility-first CSS framework
+```sh
+npm install
+npm run dev
+npm run check
+npm run build
+```
 
-### Key Libraries
-- **Framer Motion** - Animations and transitions
-- **React Router** - Client-side routing
-- **Axios** - HTTP client for API requests
-- **React Type Animation** - Text typing effects
+## Content
 
-### APIs
-- **Spotify Web API** - Real-time "Now Playing" integration
-- **YouTube Data API** - Latest video showcase
+- `src/data/portfolio.ts`: work experience, recent products, skills, and certifications from the original portfolio.
+- `src/data/reference.ts`: project card presentation and technology links for Anest.
+- Projects include MEGAFONI, SANAMY, Energy Demand Forecasting, Kohela, ArtCoffe, and Nano Chat, plus the original design explorations.
+- Education is preserved from the original portfolio.
+- Contact links point to Anest’s GitHub, LinkedIn, email, and Google Calendar booking page.
+- GitHub activity is a snapshot for Anest2009, fetched November 9, 2026 from https://github-contributions-api.jogruber.de/v4/Anest2009?y=last. The chart displays its date; it does not refresh automatically.
+- The contact form opens a draft to anestpetollari44@gmail.com in the visitor’s mail app. Direct server-side email delivery is not configured.
+- No view count or third-party testimonials are presented as Anest’s.
 
-## 🎯 Features
-
-### Dark Mode
-- System-based theme detection
-- Manual theme toggle
-- Persistent theme preference
-
-### Responsive Design
-- Mobile-first approach
-- Fluid typography
-- Adaptive layouts
-
-### Sections
-- **Home** - Introduction and latest content
-  - Animated greeting
-  - Latest YouTube videos
-  - Current Spotify track
-- **About** - Professional background and interests
-  - Professional life
-  - Content creation
-  - Side projects
-- **Gear** - Equipment and setup showcase
-  - Computer/Workspace
-  - PC Build
-  - Peripherals
-
-### Animations
-- Page transitions
-- Hover effects
-- Loading states
-- Typing animations
-
-## 🛠 Project Structure 
+The rendering check covers routes, personal identity, projects, experience, certifications, navigation, form requirements, images, fonts, and activity. Interactive browser verification remains blocked by a saved localhost permission setting. Vercel deploys the `main` branch to https://anestpetollari.vercel.app.

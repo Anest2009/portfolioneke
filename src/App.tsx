@@ -1,101 +1,37 @@
-import { Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
+import { Link, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
-import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import About from './pages/About';
-import Gear from './pages/Gear';
-import ProjectDetail from './pages/ProjectDetail';
-import InsightDetail from './pages/InsightDetail';
-// import Gallery from './pages/Gallery';
+import Projects from './pages/Projects';
+import Experience from './pages/Experience';
+import Contact from './pages/Contact';
 import ScrollToTop from './utils/ScrollToTop';
-import { Layout } from './components/Layout';
 
-const pageVariants = {
-  initial: {
-    opacity: 0,
-    y: 20,
-  },
-  enter: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.4,
-      ease: [0.61, 1, 0.88, 1],
-    },
-  },
-  exit: {
-    opacity: 0,
-    y: 20,
-    transition: {
-      duration: 0.4,
-      ease: [0.61, 1, 0.88, 1],
-    },
-  },
-};
-
-const App = () => {
-  const location = useLocation();
-  const [showFooter, setShowFooter] = useState(false);
-
-  useEffect(() => {
-    // Reset footer visibility on route change
-    setShowFooter(false);
-    
-    // Delay footer rendering
-    const timer = setTimeout(() => {
-      setShowFooter(true);
-    }, 1000); // Adjust timing as needed
-
-    return () => clearTimeout(timer);
-  }, [location.pathname]);
-
+function Portfolio() {
+  const { pathname } = useLocation();
   return (
-    <ThemeProvider>
-      <Layout>
-        <div className="flex flex-col min-h-screen">
-          <Navbar />
-          <main className="flex-grow">
-            <div className="container-width section">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={location.pathname}
-                  initial="initial"
-                  animate="enter"
-                  exit="exit"
-                  variants={pageVariants}
-                  onAnimationComplete={() => setShowFooter(true)}
-                >
-                  <Routes location={location}>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/gear" element={<Gear />} />
-                    <Route path="/gear/:insightId" element={<InsightDetail />} />
-                    <Route path="/project/:projectId" element={<ProjectDetail />} />
-                    {/* <Route path="/gallery" element={<Gallery />} /> */}
-                  </Routes>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </main>
-          <AnimatePresence>
-            {showFooter && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-              >
-                <Footer />
-              </motion.div>
-            )}
-          </AnimatePresence>
-          <ScrollToTop />
-        </div>
-      </Layout>
-    </ThemeProvider>
+    <div className="portfolio">
+      <a className="skip-link" href="#main">Skip to content</a>
+      <Navbar />
+      <main id="main" className="site-main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<Navigate to="/experience" replace />} />
+          <Route path="/gear" element={<Navigate to="/projects" replace />} />
+          <Route path="/gear/:insightId" element={<Navigate to="/projects" replace />} />
+          <Route path="/project/:projectId" element={<Navigate to="/projects" replace />} />
+          <Route path="*" element={<div className="not-found"><h1>Page not found</h1><Link to="/">Back home →</Link></div>} />
+        </Routes>
+      </main>
+      {pathname !== '/contact' && <Footer />}
+      <ScrollToTop />
+    </div>
   );
-};
-
-export default App;
+}
+export default function App() {
+  return <ThemeProvider><Portfolio /></ThemeProvider>;
+}

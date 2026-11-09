@@ -12,11 +12,11 @@ interface DesignProject {
 }
 
 const DesignProjects = () => {
-  // Sample projects - replace with your actual projects
+  // Design explorations from the original portfolio.
   const [projects] = useState<DesignProject[]>([
     {
       id: '1',
-      title: 'Featured Design Project',
+      title: 'Ana Brewing',
       description: 'Website Design',
       imageUrl: 'https://cdn.dribbble.com/userupload/37435982/file/original-e074e01f7560ce82a45251c53d8c4958.png?resize=1200x675&vertical=center',
       category: 'UI',
@@ -42,7 +42,7 @@ const DesignProjects = () => {
     {
       id: '4',
       title: 'Gala Of Hope',
-      description: 'Wbesite Design',
+      description: 'Website Design',
       imageUrl: 'https://cdn.dribbble.com/userupload/37375161/file/original-5dc6cb141f82ebf43b2ef0a36c3df94c.png?resize=1200x675&vertical=center',
       category: 'UI',
       dribbbleUrl: 'https://dribbble.com/shots/25699511-Gala-of-Hope'

@@ -17,10 +17,14 @@ const themeStorageKey = 'portfolio-theme-v2';
 
 const getInitialDarkMode = () => {
   if (typeof window === 'undefined') {
-    return false;
+    return true;
   }
 
-  return window.localStorage.getItem(themeStorageKey) === 'dark';
+  try {
+    return window.localStorage.getItem(themeStorageKey) !== 'light';
+  } catch {
+    return true;
+  }
 };
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -32,13 +36,17 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     document.documentElement.style.colorScheme = isDarkMode ? 'dark' : 'light';
 
     const themeColor = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
-    themeColor?.setAttribute('content', isDarkMode ? '#000000' : '#FFFFFF');
+    themeColor?.setAttribute('content', isDarkMode ? '#0f0e0e' : '#FFFFFF');
   }, [isDarkMode]);
 
   const toggleTheme = () => {
     setIsDarkMode((currentMode) => {
       const nextMode = !currentMode;
-      window.localStorage.setItem(themeStorageKey, nextMode ? 'dark' : 'light');
+      try {
+        window.localStorage.setItem(themeStorageKey, nextMode ? 'dark' : 'light');
+      } catch {
+        // Theme switching still works when browser storage is unavailable.
+      }
       return nextMode;
     });
   };

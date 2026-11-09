@@ -1,60 +1,47 @@
-import { motion } from 'framer-motion';
-import { TypeAnimation } from 'react-type-animation';
-import DesignProjects from '../components/DesignProjects';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, ArrowUpRight, Mail, CalendarDays } from 'lucide-react';
+import { Github, Linkedin } from '../components/SocialIcons';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import ReferenceProjectCard from '../components/ReferenceProjectCard';
+import TechStack from '../components/TechStack';
+import GitHubActivity from '../components/GitHubActivity';
+import Highlights from '../components/Highlights';
+import { referenceProjects } from '../data/reference';
 import { usePageTitle } from '../hooks/usePageTitle';
-import { FadeInSection } from '../utils/FadeInSection';
-import { BookingButton } from '../components/BookingButton';
 
-const Home = () => {
-  usePageTitle('');  // Empty string for home page
+const roles = ['Product Engineer', 'Product & Partnerships', 'Technical Lead', 'Builder'];
+const socials = [
+  { name: 'GitHub', url: 'https://github.com/Anest2009', icon: Github },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/anest-petollari-31158b338/', icon: Linkedin },
+  { name: 'Mail', url: 'mailto:anestpetollari44@gmail.com', icon: Mail },
+  { name: 'Book a call', url: 'https://calendar.app.google/kMgMeeiYA9ZdVd4f9', icon: CalendarDays },
+];
+
+export default function Home() {
+  usePageTitle('');
+  const [role, setRole] = useState(0);
+  const reducedMotion = useReducedMotion();
+  useEffect(() => {
+    if (reducedMotion) return;
+    const timer = window.setInterval(() => setRole(current => (current + 1) % roles.length), 3000);
+    return () => window.clearInterval(timer);
+  }, [reducedMotion]);
 
   return (
-    <div>
-      <FadeInSection>
-        <section className="space-y-4">
-          <motion.div
-            className="text-2xl sm:text-3xl font-bold"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <TypeAnimation
-              sequence={[
-                'Product Engineer & Partnerships at Bliss Therapy',
-              ]}
-              wrapper="h1"
-              cursor={true}
-              repeat={0}
-              speed={50}
-              style={{ display: 'inline-block' }}
-            />
-          </motion.div>
-          <motion.p
-            className="text-sm sm:text-base leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1.2 }}
-          >
-            Hey, I’m Anest, a product engineer from Tirana. I work across product engineering and partnerships at Bliss Therapy, building therapist discovery and AI-powered experiences that help people find support in their own language and culture. I’m also Technical Lead at Earth’s Own Heart, and I build and launch products like MEGAFONI. I care about making things clear, useful, and thoughtful to use.
-          </motion.p>
-          <div>
-            <BookingButton />
-          </div>
-          <p className="pt-2 text-sm sm:text-base leading-relaxed">
-            DESIGN PROJECTS (FREE TIME)
-          </p>
-        </section>
-      </FadeInSection>
-
-      <FadeInSection delay={0.2}>
-        <motion.section className="space-y-1">
-          <div className="py-4">
-            <DesignProjects />
-          </div>
-        </motion.section>
-      </FadeInSection>
+    <div className="home-page">
+      <div className="banner"><img src="/reference/banner.gif" alt="Animated forest and waterfalls" width="800" height="200" /></div>
+      <section className="profile-section" aria-label="Introduction">
+        <div className="profile-picture"><img src="/bitmoji.jpg" alt="Anest Petollari’s illustrated avatar" width="112" height="112" /></div>
+        <div className="profile-copy"><h1>Anest Petollari</h1><div className="rotating-role"><AnimatePresence mode="wait"><motion.span key={role} initial={{ opacity: 0, filter: 'blur(4px)', y: 5 }} animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }} exit={{ opacity: 0, filter: 'blur(4px)', y: -5 }} transition={{ duration: reducedMotion ? 0 : 0.3 }}>{roles[role]}</motion.span></AnimatePresence></div><p>Tirana, Albania</p></div>
+      </section>
+      <section className="about-section"><div className="section-heading"><h2>About</h2></div><ul className="about-copy"><li>I'm <strong>Anest</strong>, a product engineer from Tirana. At <strong>Bliss Therapy</strong>, I work across product engineering and partnerships, building therapist discovery and AI-powered experiences that help people find support in their own language and culture.</li><li>I'm also <strong>Technical Lead at Earth’s Own Heart</strong>, leading web development, technical infrastructure, and internal systems for a nonprofit organization.</li><li>I build and launch products like <strong>MEGAFONI and SANAMY</strong>, working with TypeScript, React, Next.js, PostgreSQL, Supabase, and AI-assisted engineering. I care about making things clear, useful, and thoughtful to use.</li></ul></section>
+      <section className="social-section"><div className="section-heading"><h2>Contact</h2></div><div className="social-grid">{socials.map(({ name, url, icon: Icon }) => <a key={name} href={url} target={name === 'Mail' ? undefined : '_blank'} rel="noreferrer" aria-label={name}><span className="social-icon">{Icon ? <Icon size={21} /> : <span className="x-icon">𝕏</span>}</span><span className="social-name">{name}</span><ArrowUpRight className="social-arrow" size={16} /></a>)}</div></section>
+      <section className="home-projects"><div className="section-heading"><h2>Projects</h2><Link className="view-all" to="/projects">View all <ArrowUpRight size={16} /></Link></div><div className="projects-grid">{referenceProjects.slice(0, 4).map(project => <ReferenceProjectCard key={project.id} project={project} />)}</div></section>
+      <TechStack />
+      <GitHubActivity />
+      <Highlights />
+      <section className="talk-section"><div className="section-heading"><h2>Scrolled Too Far</h2></div><div className="talk-content"><p>If you've read this far, you might be interested in what I do.</p><Link className="pill-button" to="/contact">Let’s Talk <ArrowRight size={18} /></Link></div></section>
     </div>
   );
-};
-
-export default Home;
+}

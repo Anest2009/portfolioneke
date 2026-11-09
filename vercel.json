@@ -1,3 +1,9 @@
 {
+  "redirects": [
+    { "source": "/about", "destination": "/experience", "permanent": true },
+    { "source": "/gear", "destination": "/projects", "permanent": true },
+    { "source": "/gear/:insightId", "destination": "/projects", "permanent": true },
+    { "source": "/project/:projectId", "destination": "/projects", "permanent": true }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
-} 
+}
